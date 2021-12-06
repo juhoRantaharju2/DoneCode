@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <meta charset="utf-8">
+
+        <script>
+
+                let weight, time, volume, dose, gender, size;
+                
+                let doseInLiters, amount, grams, burning, gramsLeft, result;
+
+                 function submitLoginForm(event){
+                 event.preventDefault();
+
+                weight = event.target['weight'].value;
+                time = event.target['time'].value;
+                volume = event.target['volume'].value;
+                dose = event.target['dose'].value;
+                gender = event.target['gender'].value;
+                size = event.target['size'].value;
+
+                doseInLiters = Number(dose / 100);
+                amount = Number(size) * doseInLiters;
+                grams = amount * 8 * Number(volume);
+                burning = Number(weight) / 10;
+                gramsLeft = grams - (burning * Number(time));
+                
+                if(gender === "male"){
+
+                    result = gramsLeft/(Number(weight * 0.7))
+
+                }else if(gender === "female"){
+
+                    result = gramsLeft/(Number(weight * 0.6))
+
+                }
+                
+                console.log(weight);
+                console.log(time);
+                console.log(volume);
+                console.log(dose);
+                console.log(gender);
+                console.log(size);
+
+                document.getElementById("try").innerHTML = result;
+
+                }
+
+        </script>
+
+    </head>
+    <body>
+        <div id="topbar">
+            <h2 id="secondMain">Blood Alcohol</h2>
+            <p class="main">calculator</p>
+        </div>
+
+        <div>
+            <form onsubmit="submitLoginForm(event)">
+                <p><label>Gender: </label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label></p>
+            <p>    <label>Weigth (kg): </label>
+                <input type="text" name="weight"></p>
+               <p> <label>Time since first drink (h): </label>
+                <input type="text" name="time"></p>
+
+                <p><label>Alcohol by volume (%): </label>
+                <input type="text" name="volume">
+            </p>
+               <p> <label>Doses (pcs): </label>
+                <input type="text" name="dose">
+            </p>
+
+            <p> <label>Drink size: </label> 
+                <select name="size" id="size">
+                    <option value="40">40ml</option>
+                    <option value="80">80ml</option>
+                    <option value="330">330ml</option>
+                    <option value="500">500ml</option>
+                    <option value="750">750ml</option></p>
+
+                <p><input type="submit" value="submit">
+                <input type="submit" value="reset"></p>
+            </form>
+        </div>
+        <div>
+            <span id="try"></span>
+        </div>
+    </body>
+</html>

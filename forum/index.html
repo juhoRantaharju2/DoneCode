@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <meta charset="utf-8">
+
+        <script>
+
+                let name;
+                let post;
+                let btn;
+                let postArray = [];
+
+                 function submitLoginForm(event){
+                 event.preventDefault();
+
+                name = event.target['name'].value;
+                post = event.target['post'].value;
+
+                console.log(name);
+                console.log(post);
+
+                //document.getElementById("try").innerHTML = name;
+                //document.getElementById("try2").innerHTML= post;
+                
+                document.createElement("DIV");
+
+                let para = document.createElement("P");
+
+                para.innerHTML = name;
+                document.body.appendChild(para);
+
+                let paran = document.createElement("P");
+
+                paran.innerHTML = post;
+                document.body.appendChild(paran);
+                
+                btn = document.createElement("BUTTON");
+                btn.innerHTML = "delete";
+                document.body.appendChild(btn);
+                //btn.onclick=deleteFunction();
+
+                /*function deleteFunction(){
+
+                    para.innerHTML = "";
+                    paran.innerHTML = "";
+                
+
+                }*/
+
+                
+                //document.getElementById('infoTextInput').value = post;
+                //<div>Result: <input id="infoTextInput" type="text" /></div>
+
+                }
+
+
+                
+
+
+        </script>
+
+    </head>
+    <body>
+        <div id="topbar">
+            <h2 id="secondMain">Try Out forum</h2>
+            <p class="main">Forum</p>
+        </div>
+
+        <div>
+            <form onsubmit="submitLoginForm(event)">
+                <input type="text" name="name">
+                <input type="text" name="post">
+                <input type="submit" value="post">
+            </form>
+        </div>
+        <span id="try"></span>
+    </body>
+</html>

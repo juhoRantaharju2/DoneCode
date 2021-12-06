@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <div class="grid-item" id="display">0</div>
+        <button class="grid-item btn operator" onClick="plusFunction()">+</button>
+        <button class="grid-item btn operator" onClick="minusFunction()">-</button>
+        <button class="grid-item btn operator" onClick="multipleFunction()">*</button>
+        <button class="grid-item btn operator" onClick="divisionFunction()">/</button>
+        <button class="grid-item btn number" id="myBtn1" onclick="oneFunction()">1</button>
+        <button class="grid-item btn number" id="myBtn2" onclick="twoFunction()">2</button>
+        <button class="grid-item btn number" id="myBtn3" onclick="threeFunction()">3</button>
+        <button class="grid-item btn equal" id="myBtnEqual" onclick="equalFunction()">=</button>
+        <button class="grid-item btn number" id="myBtn4" onclick="fourFunction()">4</button>
+        <button class="grid-item btn number" id="myBtn5" onclick="fiveFunction()">5</button>
+        <button class="grid-item btn number" id="myBtn6" onclick="sixFunction()">6</button>
+        <button class="grid-item btn number" id="myBtn7" onclick="sevenFunction()">7</button>
+        <button class="grid-item btn number" id="myBtn8" onclick="eightFunction()">8</button>
+        <button class="grid-item btn number" id="myBtn9" onclick="nineFunction()">9</button>
+        <button class="grid-item btn number" id="myBtn0" onclick="zeroFunction()">0</button>
+        <button class="grid-item btn" id="decimal" onClick="decimalFunction()">.</button>
+        <button class="grid-item btn" id="clear" onClick="clearFunction()">C</button>
+      </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript">
+      //let t = document.getElementById("display").getElementsByClassName("grid-item btn number"); 
+      //t.onClick = function() {myFunction()};
+  
+      let one, two, three, four, five, six, seven, eight, nine, zero;
+      let holdUpNumber, afterOperationNumber;
+      let plus = false;
+      let minus = false;
+      let division = false;
+      let multiple = false;
+      let decimal = false;
+      let afterOperationNumberExists = false;
+     // document.getElementById("myBtn1").onclick  = function() {myFunction()};
+  
+     function decimalFunction() {
+
+      let numberSoFar = document.getElementById("display").textContent;
+      
+      console.log(decimal);
+
+      for(let i = 0; i<numberSoFar.length; i++){ 
+
+          if(numberSoFar.charAt(i) === "."){
+
+              decimal = true;
+              console.log(decimal);
+
+          }//else {decimal = false;}
+
+
+      }
+
+      console.log(afterOperationNumberExists);
+
+      if(afterOperationNumberExists){
+
+        decimal = false;
+
+      for(let i = 0; i<afterOperationNumber.length; i++){ 
+
+      if (afterOperationNumber.charAt(i) === "."){
+
+        decimal = true;
+        console.log(decimal);
+
+          }//else {decimal = false;}
+
+
+      }}
+      
+      //vielä kerrän pitäs slice string ja muuttaa decimaali false jotta 
+      // tässä kohdassa myös plus minus jne nappien jälkeen tulis oikeen
+
+      console.log(decimal);
+
+      if(decimal!==true){
+        document.getElementById("display").innerHTML += ".";
+      } 
+
+      //one = Number(document.getElementById("myBtn1").textContent);
+        //console.log(Number(one)); 
+
+      }
+     
+     function oneFunction() {
+      
+      one = "1";
+      document.getElementById("display").innerHTML += "1";
+      console.log(one);
+      decimal = false;
+      
+      //one = Number(document.getElementById("myBtn1").textContent);
+        //console.log(Number(one)); 
+
+      }
+
+      function clearFunction() {
+    
+      holdUpNumber= 0; 
+      afterOperationNumber = 0;
+      plus = false;
+      minus = false;
+      division = false;
+      multiple = false;
+      decimal = false;
+      afterOperationNumberExists = false;
+
+      document.getElementById("display").innerHTML = "";
+
+      //one = Number(document.getElementById("myBtn1").textContent);
+        //console.log(Number(one)); 
+
+      }
+
+      function twoFunction() {
+      two = "2";
+      document.getElementById("display").innerHTML += "2";
+      console.log(two);
+      decimal = false;
+
+      }
+
+      function threeFunction() {
+      three = "3";
+      document.getElementById("display").innerHTML += "3";
+      console.log(three);
+      decimal = false;
+
+      }
+
+      function fourFunction() {
+      four = "4";
+      document.getElementById("display").innerHTML += "4";
+      console.log(four);
+      decimal = false;
+
+      }
+
+      function fiveFunction() {
+      five = "5";
+      document.getElementById("display").innerHTML += "5";
+      console.log(five);
+      decimal = false;
+
+      }
+
+      function sixFunction() {
+      six = "6";
+      document.getElementById("display").innerHTML += "6";
+      console.log(six);
+      decimal = false;
+
+      }
+
+      function sevenFunction() {
+      seven = "7";
+      document.getElementById("display").innerHTML += "7";
+      console.log(seven);
+      decimal = false;
+
+      }
+
+      function eightFunction() {
+      eight = "8";
+      document.getElementById("display").innerHTML += "8";
+      console.log(eight);
+      decimal = false;
+
+      }
+
+      function nineFunction() {
+      nine = "9";
+      document.getElementById("display").innerHTML += "9";
+      console.log(nine);
+      decimal = false;
+
+      }
+
+      function zeroFunction() {
+      zero = "0";
+      document.getElementById("display").innerHTML += "0";
+      console.log(zero);
+      decimal = false;
+
+      }
+
+      function plusFunction() {
+      holdUpNumber = document.getElementById("display").textContent;
+      document.getElementById("display").innerHTML += "+";
+      console.log(holdUpNumber);
+        plus = true;
+        afterOperationNumberExists = true;
+      decimal = true;
+      }
+
+      function minusFunction() {
+      holdUpNumber = document.getElementById("display").textContent;
+      document.getElementById("display").innerHTML += "-";
+      console.log(holdUpNumber);
+        minus = true;
+        afterOperationNumberExists = true;
+        console.log(minus);
+        decimal = true;
+      }
+
+      function divisionFunction() {
+      holdUpNumber = document.getElementById("display").textContent;
+      document.getElementById("display").innerHTML += "/";
+      console.log(holdUpNumber);
+        division = true;
+        afterOperationNumberExists = true;
+        decimal = true;
+      }
+
+      function multipleFunction() {
+      holdUpNumber = document.getElementById("display").textContent;
+      document.getElementById("display").innerHTML += "*";
+      console.log(holdUpNumber);
+        multiple = true;
+        afterOperationNumberExists = true;
+        decimal = true;
+      }
+
+      function equalFunction() {
+       let equal = document.getElementById("display").textContent;
+       afterOperationNumber = equal;
+        console.log(equal); 
+
+        
+
+        if(plus){
+
+          afterOperationNumber = afterOperationNumber.slice(afterOperationNumber.indexOf("+") + 1, afterOperationNumber.length);
+
+          console.log(afterOperationNumber); 
+
+          equal = Number(holdUpNumber) + Number(afterOperationNumber);
+
+          afterOperationNumberExists = true;
+
+          plus = false;
+
+        } else if(minus){
+
+          afterOperationNumber = afterOperationNumber.slice(afterOperationNumber.indexOf("-") + 1, afterOperationNumber.length);
+
+          console.log(afterOperationNumber); 
+
+          equal = Number(holdUpNumber) - Number(afterOperationNumber);
+
+          afterOperationNumberExists = true;
+
+          minus = false;
+
+              }else if(division){
+
+          afterOperationNumber = afterOperationNumber.slice(afterOperationNumber.indexOf("/") + 1, afterOperationNumber.length);
+
+          console.log(afterOperationNumber); 
+
+          equal = Number(holdUpNumber) / Number(afterOperationNumber);
+
+          afterOperationNumberExists = true;
+
+          division = false;
+
+          }else if(multiple){
+
+          afterOperationNumber = afterOperationNumber.slice(afterOperationNumber.indexOf("*") + 1, afterOperationNumber.length);
+
+          console.log(afterOperationNumber); 
+
+          equal = Number(holdUpNumber) * Number(afterOperationNumber);
+
+          afterOperationNumberExists = true;
+
+          multiple = false;
+
+        }
+
+
+        document.getElementById("display").innerHTML = equal;
+
+      }
+
+
+      
+      /*
+      function myFunction() {
+        document.getElementById("display").innerHTML = "1";
+        
+      }*/
+      </script>
+  </body>
+</html>
